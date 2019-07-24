@@ -12,9 +12,12 @@
 # The name of your application
 TARGET = Hackathon
 
+QT += positioning
+
 CONFIG += sailfishapp
 
-SOURCES += src/Hackathon.cpp
+SOURCES += src/Hackathon.cpp \
+    src/OnARun.cpp
 
 DISTFILES += qml/Hackathon.qml \
     qml/cover/CoverPage.qml \
@@ -43,4 +46,5 @@ HEADERS += \
     Move.h \
     track.h \
     tracer.h \
-    user.h
+    user.h \
+    trackbulder.h

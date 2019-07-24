@@ -7,18 +7,42 @@
 
 
 class Track{
-pivate:
+protected:
     Move *parts;
     int globalDistance; // какое расстояние ожидается быть пройденным
     int avaliableTime; // сколько времени в минутах пользователь может уделить
-    int partCounter; // сообщает, сколько сегментов осталось пробежать
-    Tracer *tracer; 
+    int partCounter; // сообщает, сколько сегментов осталось пробежать 
     User *user;
     
-    void setup(User *user){
-        //TODO add building parts with user's params
+public:
+    Track(){ //не знаю зачем, но пусть будет
+        parts = nullptr;
+        globalDistance = nullptr;
+        avaliableTime = 0;
+        partCounter = 0;
+        user = 0;
     }
-    
+
+
+};
+
+enum TrainType{
+    PARTIALRUN = 1,
+    MARATHON = 2,
+    CROSS = 3
+};
+
+
+class PartialRun: Track{
+
+};
+
+class Marathon : Track{
+
+};
+
+class Cross : Track{
+
 };
 
 #endif // TRACK_H
