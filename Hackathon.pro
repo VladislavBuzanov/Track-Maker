@@ -12,20 +12,33 @@
 # The name of your application
 TARGET = Hackathon
 
+<<<<<<< HEAD
+QT += sql
+=======
+QT += positioning
+>>>>>>> 187d2d110d091ff4052feeb14c9c9159ff3ab068
+
 CONFIG += sailfishapp
 
-SOURCES += src/Hackathon.cpp
+SOURCES += src/Hackathon.cpp \
+    src/OnARun.cpp
 
 DISTFILES += qml/Hackathon.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/Hackathon.changes.in \
     rpm/Hackathon.changes.run.in \
     rpm/Hackathon.spec \
     rpm/Hackathon.yaml \
     translations/*.ts \
-    Hackathon.desktop
+    Hackathon.desktop \
+    qml/pages/MainPage.qml \
+    qml/pages/RunPage.qml \
+    qml/pages/TestRunPage.qml \
+    qml/pages/Journal.qml \
+    qml/js/JournalDB.js \
+    qml/js/Utils.js \
+    qml/model/JournalModel.qml \
+    qml/dialogs/NoteDialog.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -38,3 +51,10 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/Hackathon-de.ts
+
+HEADERS += \
+    Move.h \
+    track.h \
+    tracer.h \
+    user.h \
+    trackbulder.h

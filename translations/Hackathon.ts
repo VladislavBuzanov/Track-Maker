@@ -8,4 +8,38 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>Journal</name>
+    <message>
+        <source>Журнал пробежек</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create a note</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NoteDialog</name>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter the title</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
