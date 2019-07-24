@@ -5,6 +5,7 @@ class User
 float reiting;
 float v_beg;
 float v_hod;
+float fastWolk;
 
 public:
 User()
@@ -12,6 +13,7 @@ User()
     reiting = 0;
     v_beg = 0;
     v_hod = 0;
+    fastWolk=0;
 }
 
 float getWallkSpeed()
@@ -40,6 +42,13 @@ void updateRating(float newOne)
 {
     reiting = newOne;
 }
-
+float getFastWallkSpeed()
+{
+    return fastWolk;
+}
+void updateFastWallk(float newOne)
+{
+    fastWolk = neOne;
+}
 };
 #endif // USER_H

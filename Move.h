@@ -8,8 +8,10 @@ class Move{
 protected:
     int distance; //в метрах
     float acceptableSpeed; //скорость метр в секунду
+    int nominalDistance;
 
 public:
+    int getNominalDistance(){return realDistance;}
     int getDistance(){
         return distance;
     }
@@ -22,13 +24,21 @@ public:
         return currentSpeed >= acceptableSpeed - DROPS_DOWN;
     }
 
+    Move(int distance){
+
+        this->distance = distance;
+        nominalDistance = distance;
+    }
+
 };
+
+
 
 //TODO добавить конструкторы через пользователя
 
 
 
-class Run{
+class Run : Move{
 public:
 
     bool isSpeedAcceptable(float currentSpeed){
@@ -36,10 +46,10 @@ public:
     }
 };
 
-class Jog{
+class Jog : Move{
 public:
     return currentSpeed >= acceptableSpeed - DROPS_DOWN && currentSpeed <= acceptableSpeed + DROPS_UP;
 };
-class Walk{};
+class Walk: Move{};
 
 #endif // HEADERS_H

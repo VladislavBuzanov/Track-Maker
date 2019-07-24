@@ -6,7 +6,8 @@
 
 
 //TODO сделать пстоянную обновлялку для бега
-class onARun{
+class onARun
+{
     Tracer *tracer;
     Track  *track;
     User *user;
@@ -14,12 +15,10 @@ class onARun{
     QGeoPositionInfoSource *source;
 
 public:
-    onARun(User *user){
+    onARun(User *user)
+    {
 
     }
-
-
-
-
-
 };
+
+
