@@ -13,7 +13,11 @@
 TARGET = Hackathon
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 QT += sql
+=======
+QT += positioning
+>>>>>>> 187d2d110d091ff4052feeb14c9c9159ff3ab068
 =======
 QT += positioning
 >>>>>>> 187d2d110d091ff4052feeb14c9c9159ff3ab068

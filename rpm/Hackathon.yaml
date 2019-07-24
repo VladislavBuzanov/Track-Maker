@@ -38,6 +38,9 @@ Requires:
   - qt5-qtpositioning
   - qt5-qtdeclarative-import-positioning
 
+<<<<<<< HEAD
+>>>>>>> 187d2d110d091ff4052feeb14c9c9159ff3ab068
+=======
 >>>>>>> 187d2d110d091ff4052feeb14c9c9159ff3ab068
 
 # All installed files
