@@ -11,7 +11,6 @@ class Point{
     QGeoCoordinate *location;
     Point *prev;
     Point *next;
-    QGeoCoordinate:: a;
     float deltaTime = 0;
 public:
     Point(QGC){
@@ -36,20 +35,18 @@ class Tracer{
     Point traceHead;
     Point *traceEnd;
     
-    void addPoint(QGC){
-        Point tmp(location, traceEnd);
-        traceEnd->setNext(&tmp);
-        traceEnd = &tmp;
-    }
+
 
 public:
     Tracer(QGC){
-        traceHead = Point(_xyz_); //объявили старт
+        traceHead = Point(QGC); //объявили старт
         traceEnd = &traceHead; 
     }
 
-    void update(){
-        ;
+    void update(QGC){
+        Point tmp(location, traceEnd);
+        traceEnd->setNext(&tmp);
+        traceEnd = &tmp;
     }
 
 }
