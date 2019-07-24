@@ -1,0 +1,49 @@
+#ifndef HEADERS_H
+#define HEADERS_H
+
+#define DROPS 5 
+
+class Move{
+    int distance; //в метрах 
+    float acceptableSpeed; //метр в минуту
+    
+    
+public:
+    
+    Move(int distance, float acceptableSpeed){
+        this-> distance = distance;
+        this->acceptableSpeed = acceptableSpeed;
+    }
+    
+    int decreseDistance(float delta){
+        ditance = (float)distance - dealta;
+        return distance;
+    }
+    
+    bool isSpeedAcceptdble(float currentSpeed){
+        return currentSpeed >= acceptableSpeed - DROPS;
+    }
+    
+    int getDistance(){
+        return distance;
+    }
+    
+    
+    
+    
+};
+
+
+class Run: Move{
+    
+};
+
+class Jog: Move{
+    
+};
+
+class Walk: Move{
+    
+};
+
+#endif // HEADERS_H
