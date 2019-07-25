@@ -6,7 +6,8 @@ _database.transaction(function (tx) {
         id INTEGER PRIMARY KEY AUTOINCREMENT,\
         date TEXT,\
         coords TEXT,\
-        time TEXT)");
+        time TEXT
+        )");
 });
 
 function append(properties) {

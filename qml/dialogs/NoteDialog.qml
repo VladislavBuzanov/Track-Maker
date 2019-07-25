@@ -1,50 +1,68 @@
 import QtQuick 2.0
+import QtLocation 5.0
 import Sailfish.Silica 1.0
+import QtPositioning 5.0
 
-Dialog {
-    property alias notedate: noteTitleField.text
-    property alias notecoords: noteTitleField1.text
-    property alias notetime: noteTitleField2.text
+Page {
+    id: page
+    property string date;
+    property string coords;
+    property string time;
     property bool isNewNote: false
 
     function collectProperties() {
         return {
-            date: notedate,
-            coords: notecoords,
-            time: notetime
+            date: this.date,
+            coords: this.coords,
+            time: this.time
         };
     }
 
-    canAccept: !noteTitleField.errorHighlight
 
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height
 
+
         Column {
             id: column
             width: parent.width
+            spacing: 25
+            anchors {
+                left: parent.left
+                right: parent.right
+            }
 
-            DialogHeader { acceptText: isNewNote ? qsTr("Create") : qsTr("Save") }
-            TextField {
-                id: noteTitleField
-                label: qsTr("Title")
-                placeholderText: qsTr("Enter the title")
-                width: parent.width
+            //ToDo: Добавить парсер координат и отображение маршрута на карте
+            Plugin {
+                id: mapPlugin
+                name: "osm"
+                PluginParameter {
+                    name: "osm.mapping.host";
+                    value: "http://osm.tile.server.address/"
+                }
             }
-            TextField {
-                id: noteTitleField1
-                label: qsTr("Title")
-                placeholderText: qsTr("Enter the title")
-                width: parent.width
+            Map {
+                id: map
+                width: page.width
+                height: page.height/2
+                plugin: mapPlugin
+                zoomLevel: 16
+                center: Position.coordinate
+                gesture.activeGestures: MapGestureArea.PanGesture
+
             }
-            TextField {
-                id: noteTitleField2
-                label: qsTr("Title")
-                placeholderText: qsTr("Enter the title")
-                width: parent.width
+
+            Label {
+                text: "Дата пробежки: %1".arg(date)
+                font.pixelSize: 40
+                color: Theme.primaryColor
+            }
+            Label {
+                text: "Длительность: %1".arg(time)
+                font.pixelSize: 40
+                color: Theme.primaryColor
+            }
         }
-        VerticalScrollDecorator { }
     }
-}
 }

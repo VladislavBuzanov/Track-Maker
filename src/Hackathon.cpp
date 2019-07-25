@@ -1,5 +1,8 @@
+#ifdef QT_QML_DEBUG
 #include <QtQuick>
 #include <QObject>
+#endif
+
 #include <sailfishapp.h>
 #include <qallificationrun.h>
 #include <user.h>

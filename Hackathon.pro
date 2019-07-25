@@ -13,7 +13,7 @@
 TARGET = Hackathon
 
 QT += sql
-
+QT += location
 QT += positioning
 
 CONFIG += sailfishapp
