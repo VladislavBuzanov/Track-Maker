@@ -16,7 +16,7 @@ class qualificationsRun: public  QObject
     float timeEnd;
     User *user;
 public:
-    explicit qualificationsRun(QObject *parent = nullptr);
+   // explicit qualificationsRun(QObject *parent = nullptr);
 
 
     qualificationsRun(User *user, int walkDist, int fastWalkDist, int runDist){

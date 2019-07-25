@@ -13,10 +13,9 @@ class onARun
     QGeoPositionInfoSource *source;
 
 public:
-    onARun(User *user)
-    {
-
-    }
+  //  onARun(User *user)
+  //  {
+  //  }
 };
 
 

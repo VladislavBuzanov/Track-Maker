@@ -16,8 +16,6 @@ QT += sql
 
 QT += positioning
 
-QT += positioning
-
 CONFIG += sailfishapp
 
 SOURCES += src/Hackathon.cpp \

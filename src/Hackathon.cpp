@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    qmlRegisterType <qualificationsRun>("qualRun", 1, 0 , "QualRun");
+   // qmlRegisterType <qualificationsRun>("qualRun", 1, 0 , "QualRun");
     qmlRegisterType <User>("user", 1, 0, "User");
 
 

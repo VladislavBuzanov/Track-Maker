@@ -6,21 +6,16 @@
 class User : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float averWalkSpeed READ averWalkSpeed)
-    Q_PROPERTY(float  averRunSpeed READ averRunSpeed)
-    Q_PROPERTY(float fastWalk READ fastWalk)
+    Q_PROPERTY(float averWalkSpeed READ getWallkSpeed NOTIFY noteWallk)
+    Q_PROPERTY(float  averRunSpeed READ getRunSpeed NOTIFY noteRun)
+    Q_PROPERTY(float fastWalk READ getFastWallkSpeed NOTIFY noteFastWallk)
 
-float reiting;
-float averRunSpeed;
-float averWalkSpeed;
-float fastWalk;
+float reiting = 0;
+float averRunSpeed = 0;
+float averWalkSpeed = 0;
+float fastWalk = 0;
 
 public:
-
-explicit User(QObject *parent = nullptr);
-
-
-
 
 float getWallkSpeed()
 {
@@ -29,6 +24,7 @@ float getWallkSpeed()
 void updateWallk(float newOne)
 {
     averWalkSpeed = newOne;
+    emit noteWallk();
 }
 float getRunSpeed()
 {
@@ -38,6 +34,7 @@ float getRunSpeed()
 void updateRun(float newOne)
 {
     averRunSpeed = newOne;
+    emit noteRun();
 }
 
 float getRating()
@@ -55,6 +52,15 @@ float getFastWallkSpeed()
 void updateFastWallk(float newOne)
 {
     fastWalk = newOne;
+    emit noteFastWallk();
 }
+
+
+signals:
+void noteWallk();
+void noteRun();
+void noteFastWallk();
+
+
 };
 #endif // USER_H

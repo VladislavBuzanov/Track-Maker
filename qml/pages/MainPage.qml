@@ -7,9 +7,9 @@ Page {
     id: page
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.Portrait
-    User{
+   /* User{
         id: user
-    }
+    }*/
 
    Column {
        id: column
