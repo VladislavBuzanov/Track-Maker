@@ -41,13 +41,13 @@ Page {
                    }
                }
 
-               onClicked: {
-                   var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/NoteDialog.qml"));
-                   dialog.update(notesModel.getNote(model.index));
-                   dialog.accepted.connect(function () {
-                       journalItem.setNote(model.index, dialog.collectProperties());
-                   });
-               }
+//               onClicked: {
+//                   var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/NoteDialog.qml"));
+//                   dialog.update(notesModel.getNote(model.index));
+//                   dialog.accepted.connect(function () {
+//                       journalItem.setNote(model.index, dialog.collectProperties());
+//                   });
+//               }
                ListView.onRemove: journalItem.animateRemoval()
 
                Column {
