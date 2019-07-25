@@ -12,8 +12,7 @@ Page {
            header: PageHeader { title: qsTr("Журнал пробежек") }
            model: jmodel
            delegate: journalD
-
-       }
+    }
        Component {
            id: journalD
 
@@ -33,12 +32,13 @@ Page {
                }
 
                onClicked: {
-                   var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/NoteDialog.qml"));
-                   dialog.update(jmodel.getNote(model.index));
-                   dialog.accepted.connect(function () {
-                       journalItem.setNote(model.index, dialog.collectProperties());
-                   });
+                   var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/NoteDialog.qml"), {
+                                                   date: jmodel.getDate(),
+                                                   coords: jmodel.getCoords(),
+                                                   time: jmodel.getTime()
+                                               });
                }
+
                ListView.onRemove: journalItem.animateRemoval()
 
                Column {

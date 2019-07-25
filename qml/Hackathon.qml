@@ -7,7 +7,6 @@ ApplicationWindow
 {
     readonly property JournalModel jmodel: JournalModel {}
 
-
     initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations

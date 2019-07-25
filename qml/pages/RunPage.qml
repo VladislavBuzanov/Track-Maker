@@ -5,10 +5,12 @@ import QtPositioning 5.3
 Page {
     id: page
     //ToDO: Make dependences
-    property int timePassed: 0
-    property real avg_speed: 0
-    property int distPasses: 0
-    property int timeLeft: 0
+    property real avg_speed: 0;
+    property int distPasses: 0;
+    property int minute: 0;
+    property int hours: 0;
+    property int seconds: 0;
+
     Image {
         id: image
         anchors {
@@ -22,8 +24,20 @@ Page {
             onClicked:  {
                 if (image.state == 'Runing') {
                     image.state = 'NotRuning'
+                    minute = 0;
+                    hours = 0;
+                    timePassed.text = "Времени прошло - 00:00"
                 }
                 else {
+                    var dialog = pageStack.push("Sailfish.Silica.TimePickerDialog", {
+                                                hourMode: DateTime.TwentyFourHours});
+                    dialog.accepted.connect(function() {
+                        minute = dialog.minute
+                        hours = dialog.hour
+                        var second = (minute + hours * 60) * 60;
+                        seconds = second;
+                        timePassed.text = "Времени осталось - " + dialog.timeText;
+                    })
                     image.state = 'Runing'
                 }
             }
@@ -65,11 +79,7 @@ Page {
            margins: Theme.paddingLarge
        }
 
-       Label {
-           text: "Времени прошло - %1".arg(timePassed)
-           font.pixelSize: 40
-           color: Theme.primaryColor
-       }
+
        Label {
            text: "Средняя скорость - %1 км/ч".arg(avg_speed)
            font.pixelSize: 40
@@ -81,9 +91,11 @@ Page {
            color: Theme.primaryColor
        }
        Label {
-           text: "Осталось времени - %1".arg(timeLeft)
+           id: timePassed
+           text: "Времени прошло - %1 ч %2 м".arg(hours).arg(minute)
            font.pixelSize: 40
            color: Theme.primaryColor
        }
    }
 }
+
