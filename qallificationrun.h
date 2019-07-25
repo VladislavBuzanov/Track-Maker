@@ -3,14 +3,22 @@
 #include <Move.h>
 #include <QGeoCoordinate>
 #include <QGeoPositionInfoSource>
-class qualificationsRun: QObject
+#include <user.h>
+#include <QObject>
+
+
+class qualificationsRun: public  QObject
 {
+    Q_OBJECT
 
     Move *parts;
     float timeStart;
     float timeEnd;
     User *user;
 public:
+    explicit qualificationsRun(QObject *parent = nullptr);
+
+
     qualificationsRun(User *user, int walkDist, int fastWalkDist, int runDist){
         this->user = user;
         parts = new Move [3];
@@ -18,6 +26,7 @@ public:
         parts[1] = Move(fastWalkDist); // быстро идти
         parts[2] = Move(runDist);
     }
+
 
     qualificationsRun(User *user)
     {

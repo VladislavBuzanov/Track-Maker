@@ -32,25 +32,6 @@ public:
 
 };
 
-enum TrainType{
-    PARTIALRUN = 1,
-    MARATHON = 2,
-    CROSS = 3,
-    QUALLIFICATIONRUN = 4
-};
-
-
-class PartialRun: Track{
-
-};
-
-class Marathon : Track{
-
-};
-
-class Cross : Track{
-
-};
 
 
 #endif // TRACK_H

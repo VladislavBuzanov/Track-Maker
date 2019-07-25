@@ -1,11 +1,15 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import user 1.0
 
 
 Page {
     id: page
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.Portrait
+    User{
+        id: user
+    }
 
    Column {
        id: column
@@ -88,7 +92,7 @@ Page {
               margins: Theme.paddingMedium
 
           }
-          property int avg_run_speed: 10
+          property int avg_run_speed: user.averRunSpeed;
           text: "Средняя скорость бега: %1 км/ч".arg(avg_run_speed)
           font.pixelSize: 40
           color: Theme.primaryColor
@@ -100,7 +104,7 @@ Page {
               margins: Theme.paddingMedium
 
           }
-          property int avg_walk_speed: 4
+          property int avg_walk_speed: user.averWalkSpeed;
           text: "Средняя скорость хотьбы: %1 км/ч".arg(avg_walk_speed)
           font.pixelSize: 40
           color: Theme.primaryColor

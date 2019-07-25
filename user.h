@@ -1,37 +1,43 @@
 #ifndef USER_H
 #define USER_H
-class User
+#include <QObject>
+
+
+class User : public QObject
 {
+    Q_OBJECT
+    Q_PROPERTY(float averWalkSpeed READ averWalkSpeed)
+    Q_PROPERTY(float  averRunSpeed READ averRunSpeed)
+    Q_PROPERTY(float fastWalk READ fastWalk)
+
 float reiting;
-float v_beg;
-float v_hod;
-float fastWolk;
+float averRunSpeed;
+float averWalkSpeed;
+float fastWalk;
 
 public:
-User()
-{
-    reiting = 0;
-    v_beg = 0;
-    v_hod = 0;
-    fastWolk=0;
-}
+
+explicit User(QObject *parent = nullptr);
+
+
+
 
 float getWallkSpeed()
 {
-    return v_hod;
+    return averWalkSpeed;
 }
 void updateWallk(float newOne)
 {
-    v_hod = newOne;
+    averWalkSpeed = newOne;
 }
 float getRunSpeed()
 {
-    return v_beg;
+    return averRunSpeed;
 }
 
 void updateRun(float newOne)
 {
-    v_beg = newOne;
+    averRunSpeed = newOne;
 }
 
 float getRating()
@@ -44,11 +50,11 @@ void updateRating(float newOne)
 }
 float getFastWallkSpeed()
 {
-    return fastWolk;
+    return fastWalk;
 }
 void updateFastWallk(float newOne)
 {
-    fastWolk = newOne;
+    fastWalk = newOne;
 }
 };
 #endif // USER_H
