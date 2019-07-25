@@ -1,7 +1,6 @@
 #include <QGeoPositionInfoSource>
 #include <QGeoCoordinate>
 #include <tracer.h>
-#include <track.h>
 #include <user.h>
 
 
@@ -9,7 +8,6 @@
 class onARun
 {
     Tracer *tracer;
-    Track  *track;
     User *user;
     QGeoCoordinate *lastpoint;
     QGeoPositionInfoSource *source;

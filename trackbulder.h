@@ -11,7 +11,9 @@ public:
     }
 
 private: //TODO fix
-    void buildPartialRun(User *user){}
+    void buildPartialRun(User *user){
+
+    }
 
 };
 
