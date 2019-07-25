@@ -1,15 +1,11 @@
+#ifdef QT_QML_DEBUG
 #include <QtQuick>
-#include <QObject>
+#endif
+
 #include <sailfishapp.h>
-#include <qallificationrun.h>
-#include <user.h>
 
 int main(int argc, char *argv[])
 {
-   // qmlRegisterType <qualificationsRun>("qualRun", 1, 0 , "QualRun");
-    qmlRegisterType <User>("user", 1, 0, "User");
-
-
     // SailfishApp::main() will display "qml/Hackathon.qml", if you need more
     // control over initialization, you can use:
     //

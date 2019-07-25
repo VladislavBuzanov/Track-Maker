@@ -18,10 +18,6 @@
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Create a note</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>NoteDialog</name>

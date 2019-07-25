@@ -18,8 +18,7 @@ QT += positioning
 
 CONFIG += sailfishapp
 
-SOURCES += src/Hackathon.cpp \
-    src/OnARun.cpp
+SOURCES += src/Hackathon.cpp
 
 DISTFILES += qml/Hackathon.qml \
     qml/cover/CoverPage.qml \
@@ -35,8 +34,7 @@ DISTFILES += qml/Hackathon.qml \
     qml/pages/Journal.qml \
     qml/js/JournalDB.js \
     qml/js/Utils.js \
-    qml/model/JournalModel.qml \
-    qml/dialogs/NoteDialog.qml
+    qml/model/JournalModel.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -49,11 +47,3 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/Hackathon-de.ts
-
-HEADERS += \
-    Move.h \
-    track.h \
-    tracer.h \
-    user.h \
-    trackbulder.h \
-    qallificationrun.h

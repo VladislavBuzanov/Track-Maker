@@ -13,15 +13,6 @@ Page {
            model: jmodel
            delegate: journalD
 
-           VerticalScrollDecorator { }
-           PullDownMenu {
-               MenuItem {
-                   text: qsTr("Create a note")
-                   onClicked: openNewNoteDialog()
-               }
-           }
-
-
        }
        Component {
            id: journalD
@@ -31,7 +22,7 @@ Page {
                contentHeight: Theme.itemSizeMedium
 
                function remove() {
-                   notesModel.removeNote(model.index);
+                   jmodel.removeNote(model.index);
                }
 
                menu: ContextMenu {
@@ -41,13 +32,13 @@ Page {
                    }
                }
 
-//               onClicked: {
-//                   var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/NoteDialog.qml"));
-//                   dialog.update(notesModel.getNote(model.index));
-//                   dialog.accepted.connect(function () {
-//                       journalItem.setNote(model.index, dialog.collectProperties());
-//                   });
-//               }
+               onClicked: {
+                   var dialog = pageStack.push(Qt.resolvedUrl("../dialogs/NoteDialog.qml"));
+                   dialog.update(jmodel.getNote(model.index));
+                   dialog.accepted.connect(function () {
+                       journalItem.setNote(model.index, dialog.collectProperties());
+                   });
+               }
                ListView.onRemove: journalItem.animateRemoval()
 
                Column {
