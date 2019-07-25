@@ -9,7 +9,7 @@
 
 #define STD_RUN  12
 #define STD_WALK 5
-
+#define CHECK_RATE 2000
 
 
 class Track: public QObject{
@@ -62,7 +62,7 @@ public:
 
         QGeoPositionInfoSource *source;
         source = QGeoPositionInfoSource::createDefaultSource(this);
-        source->setUpdateInterval(500);
+        source->setUpdateInterval(CHECK_RATE);
         QGeoCoordinate pointA, pointB;
         source->startUpdates();
 

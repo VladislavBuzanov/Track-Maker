@@ -7,6 +7,8 @@
 #include <QObject>
 #include <tracer.h>
 
+
+#define CHECK_RATE 2000
 enum Task{
     WALK = 1,
     WALK_FAST =2,
@@ -51,11 +53,11 @@ public:
         parts[2] = Move(1000);
         distanceLeft = parts[0].getDistance() + parts[1].getDistance() + parts[2].getDistance();
     }
-    void run(){
+    Q_INVOKABLE void run(){
 
         QGeoPositionInfoSource *source;
         source = QGeoPositionInfoSource::createDefaultSource(this);
-        source->setUpdateInterval(500);
+        source->setUpdateInterval(CHECK_RATE);
         QGeoCoordinate pointA, pointB;
         source->startUpdates();
 

@@ -14,9 +14,14 @@ class Point{
     float deltaTime = 0;
 public:
 
-    int size;
+    QGeoCoordinate *getCoord(){
+        return location;
+    }
+    Point *getNext(){
+        return next;
+    }
+
     Point(){
-        size = 0;
         this->location = nullptr;
         this->prev = nullptr;
         this->next = nullptr;
@@ -46,7 +51,7 @@ class Tracer{
 
     Point traceHead;
     Point *traceEnd;
-    
+
 
 
 public:
@@ -57,6 +62,23 @@ public:
         traceEnd = &traceHead; 
     }
 
+    QString *getCoords(){
+        Point *point = &traceHead;
+        Point *nextPoint = traceHead.getNext();
+
+        QString toReturn;
+
+        while(true){
+            point = nextPoint;
+            nextPoint = point->getNext();
+            toReturn += point->getCoord()->latitude();
+           // toReturn.
+            if(nextPoint == nullptr)
+                break;
+        }
+        return &toReturn;
+    }
+
     void update(QGeoCoordinate location){
         Point tmp(&location, traceEnd);
         traceEnd->setNext(&tmp);
@@ -64,6 +86,9 @@ public:
     }
 
 };
+
+
+
 
 #endif // TRACER_H
 
