@@ -120,50 +120,87 @@ Page {
           color: Theme.primaryColor
       }
    }
-    Rectangle {
-        width: parent.width
-        height: 160
-        anchors {
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
-        z: -1
-        color: Theme.darkSecondaryColor
 
         Row {
+            width: parent.width
             anchors {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
-                margins: Theme.paddingSmall
             }
-            spacing: 30
+            Rectangle {
+                id: rect1
+                width: parent.width/3
+                color: Theme.darkPrimaryColor
+                border.color: Theme.darkSecondaryColor
+                height: 150
+                Button {
+                    width: parent.width
+                    height: parent.height
+                    id: b1
+                    anchors.fill: rect1
+                    color: "transparent"
+                    Label {
+                        text: "Журнал"
+                        color: Theme.primaryColor
+                        anchors.centerIn: b1
+                        font.pixelSize: 40
+                    }                     onClicked: {
+                         pageStack.push(Qt.resolvedUrl("Journal.qml"))
+                     }
+                }
+            }
+            Rectangle {
+                id: rect2
+                width: parent.width/3
+                color: Theme.darkPrimaryColor
+                border.color: Theme.darkSecondaryColor
+                height: 150
+                Button {
+                    width: parent.width
+                    height: parent.height
+                    id: b2
+                    anchors.fill: rect2
+                    color: "transparent"
+                    Label {
+                        text: "Пробежка"
+                        color: Theme.primaryColor
+                        anchors.centerIn: b2
+                        font.pixelSize: 40
+                    }                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("RunPage.qml"))
+                    }
+                }
 
-            Button {
-                 height: 160
-                 width: 210
-                 text: "Журнал"
-                 onClicked: {
-                     pageStack.push(Qt.resolvedUrl("Journal.qml"))
-                 }
+
+
             }
-            Button {
-                height: 160
-                width: 210
-                text: "Пробежка"
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("RunPage.qml"))
+            Rectangle {
+                id:rect3
+                width: parent.width/3
+                color: Theme.darkPrimaryColor
+                border.color: Theme.darkSecondaryColor
+                height: 150
+                Button {
+                    width: parent.width
+                    height: parent.height
+                    id: b3
+                    color: "transparent"
+                    anchors.fill: rect3
+                    Label {
+                        text: "Тест"
+                        color: Theme.primaryColor
+                        anchors.centerIn: b3
+                        font.pixelSize: 40
+                    }
+
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("TestRunPage.qml"))
+                    }
                 }
-            }
-            Button {
-                height: 160
-                width: 210
-                text: "Тест"
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("TestRunPage.qml"))
-                }
+
+
             }
         }
-    }
+
 }
