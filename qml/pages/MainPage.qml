@@ -2,13 +2,15 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import user 1.0
 
+
 Page {
     id: page
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.Portrait
-   User {
+   User{
         id: user
     }
+
    Column {
        id: column
        spacing: Theme.paddingMedium
@@ -90,12 +92,11 @@ Page {
               margins: Theme.paddingMedium
 
           }
-          property int avg_walk_speed: 4
-          text: "Средняя скорость хотьбы: %1 км/ч".arg(avg_walk_speed)
+          property int avg_run_speed: user.averRunSpeed;
+          text: "Средняя скорость бега: %1 км/ч".arg(avg_run_speed)
           font.pixelSize: 40
           color: Theme.primaryColor
       }
-
       Label {
           anchors {
               left: parent.left
@@ -103,8 +104,8 @@ Page {
               margins: Theme.paddingMedium
 
           }
-          property int avg_run_speed: 10
-          text: "Средняя скорость бега: %1 км/ч".arg(avg_run_speed)
+          property int avg_walk_speed: user.averWalkSpeed;
+          text: "Средняя скорость хотьбы: %1 км/ч".arg(avg_walk_speed)
           font.pixelSize: 40
           color: Theme.primaryColor
       }
@@ -123,87 +124,50 @@ Page {
           color: Theme.primaryColor
       }
    }
+    Rectangle {
+        width: parent.width
+        height: 160
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+        z: -1
+        color: Theme.darkSecondaryColor
 
         Row {
-            width: parent.width
             anchors {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
+                margins: Theme.paddingSmall
             }
-            Rectangle {
-                id: rect1
-                width: parent.width/3
-                color: Theme.darkPrimaryColor
-                border.color: Theme.darkSecondaryColor
-                height: 150
-                Button {
-                    width: parent.width
-                    height: parent.height
-                    id: b1
-                    anchors.fill: rect1
-                    color: "transparent"
-                    Label {
-                        text: "Журнал"
-                        color: Theme.primaryColor
-                        anchors.centerIn: b1
-                        font.pixelSize: 40
-                    }                     onClicked: {
-                         pageStack.push(Qt.resolvedUrl("Journal.qml"))
-                     }
+            spacing: 30
+
+            Button {
+                 height: 160
+                 width: 210
+                 text: "Журнал"
+                 onClicked: {
+                     pageStack.push(Qt.resolvedUrl("Journal.qml"))
+                 }
+            }
+            Button {
+                height: 160
+                width: 210
+                text: "Пробежка"
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("RunPage.qml"))
                 }
             }
-            Rectangle {
-                id: rect2
-                width: parent.width/3
-                color: Theme.darkPrimaryColor
-                border.color: Theme.darkSecondaryColor
-                height: 150
-                Button {
-                    width: parent.width
-                    height: parent.height
-                    id: b2
-                    anchors.fill: rect2
-                    color: "transparent"
-                    Label {
-                        text: "Пробежка"
-                        color: Theme.primaryColor
-                        anchors.centerIn: b2
-                        font.pixelSize: 40
-                    }                    onClicked: {
-                        pageStack.push(Qt.resolvedUrl("RunPage.qml"))
-                    }
+            Button {
+                height: 160
+                width: 210
+                text: "Тест"
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("TestRunPage.qml"))
                 }
-
-
-
-            }
-            Rectangle {
-                id:rect3
-                width: parent.width/3
-                color: Theme.darkPrimaryColor
-                border.color: Theme.darkSecondaryColor
-                height: 150
-                Button {
-                    width: parent.width
-                    height: parent.height
-                    id: b3
-                    color: "transparent"
-                    anchors.fill: rect3
-                    Label {
-                        text: "Тест"
-                        color: Theme.primaryColor
-                        anchors.centerIn: b3
-                        font.pixelSize: 40
-                    }
-
-                    onClicked: {
-                        pageStack.push(Qt.resolvedUrl("TestRunPage.qml"))
-                    }
-                }
-
-
             }
         }
-
+    }
 }

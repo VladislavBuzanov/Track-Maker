@@ -41,29 +41,7 @@ ListModel {
     }
 
     Component.onCompleted: {
-        jmodel.appendNote(this.collectProperties())
         var notes = Database.readAll();
-    }
-
-    property string noteDate: "24/07/2019"
-    property string noteCoords: "55.75269|48.74475,55.7556|48.74629,55.75567|48.75402,55.75051|48.75415"
-    property string noteTime: "00:40"
-
-    function getDate() {
-        return noteDate
-    }
-    function getCoords() {
-        return noteCoords
-    }
-    function getTime() {
-        return noteTime
-    }
-
-    function collectProperties() {
-        return {
-            date: noteDate,
-            coords: noteCoords,
-            time: noteTime
-        };
+        Utils.fillListModel(model, notes);
     }
 }

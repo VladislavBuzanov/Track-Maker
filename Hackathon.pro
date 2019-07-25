@@ -13,7 +13,7 @@
 TARGET = Hackathon
 
 QT += sql
-QT += location
+
 QT += positioning
 
 CONFIG += sailfishapp
@@ -54,4 +54,6 @@ HEADERS += \
     track.h \
     tracer.h \
     user.h \
-    qallificationrun.h
+    qallificationrun.h \
+    user.h \
+    Move.h
