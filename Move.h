@@ -6,13 +6,16 @@
 //погрешность в определении скорости
 class Move{
 protected:
-    int distance; //в метрах
+    float distance; //в метрах
     float acceptableSpeed; //скорость метр в секунду
     int nominalDistance;
 
 public:
-    int getNominalDistance(){return realDistance;}
-    int getDistance(){
+    Move(){
+        distance = 0;
+    }
+    int getNominalDistance(){return  nominalDistance;}
+    float getDistance(){
         return distance;
     }
     int decreaseDistance(float delta){
@@ -48,7 +51,9 @@ public:
 
 class Jog : Move{
 public:
-    return currentSpeed >= acceptableSpeed - DROPS_DOWN && currentSpeed <= acceptableSpeed + DROPS_UP;
+    bool isSpeedAcceptable(float currentSpeed){
+        return currentSpeed >= acceptableSpeed - DROPS_DOWN && currentSpeed <= acceptableSpeed + DROPS_UP;
+    }
 };
 class Walk: Move{};
 

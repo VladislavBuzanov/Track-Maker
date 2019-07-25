@@ -22,7 +22,7 @@ float getWallkSpeed()
 }
 void updateWallk(float newOne)
 {
-    v_hod = neOne;
+    v_hod = newOne;
 }
 float getRunSpeed()
 {
@@ -31,7 +31,7 @@ float getRunSpeed()
 
 void updateRun(float newOne)
 {
-    v_beg = neOne;
+    v_beg = newOne;
 }
 
 float getRating()
@@ -48,7 +48,7 @@ float getFastWallkSpeed()
 }
 void updateFastWallk(float newOne)
 {
-    fastWolk = neOne;
+    fastWolk = newOne;
 }
 };
 #endif // USER_H

@@ -2,24 +2,30 @@
 #define TRACER_H
 #include <QGeoCoordinate>
 
-#define XYZ float x, float y, float z
-#define QGC QGeoCoordinate *location
 
 //TODO пофиксить координаты
 
 class Point{
+
     QGeoCoordinate *location;
     Point *prev;
     Point *next;
     float deltaTime = 0;
 public:
-    Point(QGC){
-        this = Point(QGC, nullptr, nullptr);
+    Point(){
+
+        this->location = nullptr;
+        this->prev = nullptr;
+        this->next = nullptr;
     }
-    Point(QGC, Point *prev){
-        this = Point(QGC, prev, nullptr);
+
+    Point(QGeoCoordinate *location){
+        *this = Point(location, nullptr, nullptr);
     }
-    Point(QGC, Point *prev, Point *next){
+    Point(QGeoCoordinate *location, Point *prev){
+        *this = Point( location, prev, nullptr);
+    }
+    Point(QGeoCoordinate *location, Point *prev, Point *next){
 
         this->location = location;
         this->prev = prev;
@@ -38,18 +44,19 @@ class Tracer{
 
 
 public:
-    Tracer(QGC){
-        traceHead = Point(QGC); //объявили старт
+    Tracer(QGeoCoordinate *location){
+        Point tmp(location);
+        traceHead = tmp; //объявили старт
         traceEnd = &traceHead; 
     }
 
-    void update(QGC){
+    void update(QGeoCoordinate *location){
         Point tmp(location, traceEnd);
         traceEnd->setNext(&tmp);
         traceEnd = &tmp;
     }
 
-}
+};
 
 #endif // TRACER_H
 
