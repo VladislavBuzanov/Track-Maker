@@ -18,8 +18,7 @@ QT += positioning
 
 CONFIG += sailfishapp
 
-SOURCES += src/Hackathon.cpp \
-    src/OnARun.cpp
+SOURCES += src/Hackathon.cpp
 
 DISTFILES += qml/Hackathon.qml \
     qml/cover/CoverPage.qml \
@@ -55,5 +54,4 @@ HEADERS += \
     track.h \
     tracer.h \
     user.h \
-    trackbulder.h \
     qallificationrun.h

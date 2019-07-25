@@ -3,22 +3,20 @@
 #include <sailfishapp.h>
 #include <qallificationrun.h>
 #include <user.h>
+#include <track.h>
 
 int main(int argc, char *argv[])
 {
-   // qmlRegisterType <qualificationsRun>("qualRun", 1, 0 , "QualRun");
+    qmlRegisterType <qualificationsRun>("qualRun", 1, 0 , "QualRun");
     qmlRegisterType <User>("user", 1, 0, "User");
+    qmlRegisterType <Track> ("track", 1, 0, "Track");
+    //TODO сделать конструирование юзверя по файлу
+    User user;
+    Track track;
+    qualificationsRun qualRun;
 
 
-    // SailfishApp::main() will display "qml/Hackathon.qml", if you need more
-    // control over initialization, you can use:
-    //
-    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
-    //   - SailfishApp::createView() to get a new QQuickView * instance
-    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
-    //   - SailfishApp::pathToMainQml() to get a QUrl to the main QML file
-    //
-    // To display the view, call "show()" (will show fullscreen on device).
+    track.setupUser(&user);
 
     return SailfishApp::main(argc, argv);
 }

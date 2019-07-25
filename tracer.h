@@ -1,19 +1,22 @@
 #ifndef TRACER_H
 #define TRACER_H
 #include <QGeoCoordinate>
-
+#include <QString>
 
 //TODO пофиксить координаты
 
 class Point{
+
 
     QGeoCoordinate *location;
     Point *prev;
     Point *next;
     float deltaTime = 0;
 public:
-    Point(){
 
+    int size;
+    Point(){
+        size = 0;
         this->location = nullptr;
         this->prev = nullptr;
         this->next = nullptr;
@@ -38,20 +41,24 @@ public:
 };
 
 class Tracer{
+
+    float *messageToVlad;
+
     Point traceHead;
     Point *traceEnd;
     
 
 
 public:
-    Tracer(QGeoCoordinate *location){
-        Point tmp(location);
+    Tracer(){}
+    Tracer(QGeoCoordinate location){
+        Point tmp(&location);
         traceHead = tmp; //объявили старт
         traceEnd = &traceHead; 
     }
 
-    void update(QGeoCoordinate *location){
-        Point tmp(location, traceEnd);
+    void update(QGeoCoordinate location){
+        Point tmp(&location, traceEnd);
         traceEnd->setNext(&tmp);
         traceEnd = &tmp;
     }
