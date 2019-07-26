@@ -56,4 +56,5 @@ HEADERS += \
     user.h \
     qallificationrun.h \
     user.h \
-    Move.h
+    Move.h \
+    quallrunthread.h

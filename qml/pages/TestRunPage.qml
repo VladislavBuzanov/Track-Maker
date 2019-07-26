@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+
 Page  {
     Image {
         id: image
@@ -15,7 +16,7 @@ Page  {
             anchors.fill : image
             onClicked:  {
                 console.log("run");
-                QualRun.run()
+                QualThread.start()
                 image.state = 'Walk'
                 }
             }

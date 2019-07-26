@@ -5,7 +5,7 @@
 #include <qallificationrun.h>
 #include <user.h>
 #include <track.h>
-
+#include <quallrunthread.h>
 
 #define FILE_NAME "userLog.txt"
 
@@ -42,9 +42,13 @@ int main(int argc, char *argv[])
     Track *track = new Track();
     track->setupUser( user);
 
+    QualRunThread *qrt = new QualRunThread (qualRun);
+
     view->rootContext()->setContextProperty("User", user);
     view->rootContext()->setContextProperty("QualRun", qualRun);
     view->rootContext()->setContextProperty("Track", track);
+     view->rootContext()->setContextProperty("QualThread", qrt);
+
      view->show();
 
 
