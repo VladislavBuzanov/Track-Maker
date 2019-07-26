@@ -1,19 +1,52 @@
 #include <QtQuick>
 #include <QObject>
+#include <QFile>
 #include <sailfishapp.h>
 #include <qallificationrun.h>
 #include <user.h>
 #include <track.h>
 
+
+#define FILE_NAME "userLog.txt"
+
+void fillUserLog(QFile *file){
+
+    file->open(QIODevice::ReadWrite);
+    file->write("3\n5\n10");
+    file->close();
+}
+
+void buildUser(QFile *file, User *user){
+    file->open(QIODevice::ReadOnly);
+    user->updateWallk(file->readLine().toFloat());
+    user->updateFastWallk(file->readLine().toFloat());
+    user->updateRun(file->readLine().toFloat());
+    file->close();
+}
+
 int main(int argc, char *argv[])
-{
-    qmlRegisterType <qualificationsRun>("qualRun", 1, 0 , "QualRun");
-    qmlRegisterType <User>("user", 1, 0, "User");
-    qmlRegisterType <Track> ("track", 1, 0, "Track");
-    //TODO сделать конструирование юзверя по файлу
-    User user;
+{    User user;
+
+    QFile userLog(FILE_NAME);
+
+    if( !(QFile::exists(FILE_NAME)))
+        fillUserLog(&userLog);
+
+    buildUser(&userLog, &user);
+    qualificationsRun qualRun(& user);
     Track track;
-    qualificationsRun qualRun;
+    track.setupUser(&user);
+
+    QQuickView view;
+    view.rootContext()->setContextProperty("User", &user);
+    view.rootContext()->setContextProperty("QualRun", &qualRun);
+    view.rootContext()->setContextProperty("Track", &track);
+    view.show();
+
+
+
+
+
 
 
     track.setupUser(&user);
