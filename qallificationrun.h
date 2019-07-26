@@ -94,6 +94,7 @@ public:
                 user->updateRun(getAverageSpeed(i));
         }
         emit isOverNow();
+        user->updateUserLog();
     }
     int getTask(){
         return task;
