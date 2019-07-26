@@ -4,13 +4,11 @@ import "pages"
 import "model"
 import QtLocation 5.0
 import QtPositioning 5.0
-import qualRun 1.0
 
 ApplicationWindow
 {
     readonly property JournalModel jmodel: JournalModel {}
-    property QualRun qRun: QualRun {}
-    property GeoShape geopath: QGeoPath {}
+
     initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations

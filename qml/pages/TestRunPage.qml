@@ -17,7 +17,7 @@ Page  {
             anchors.fill : image
             onClicked:  {
                 console.log("run");
-                qRun.run();
+                QualRun.run()
                 image.state = 'Walk'
                 }
             }
