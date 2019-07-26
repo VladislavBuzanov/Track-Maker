@@ -10,7 +10,6 @@ ApplicationWindow
 {
     readonly property JournalModel jmodel: JournalModel {}
     property QualRun qRun: QualRun {}
-    property GeoShape geopath: QGeoPath {}
     initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations

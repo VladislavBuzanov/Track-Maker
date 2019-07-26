@@ -5,6 +5,8 @@ import user 1.0
 
 Page {
     id: page
+    property int avg_walk_speed: user.averWalkSpeed;
+
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.Portrait
    User{
@@ -104,12 +106,12 @@ Page {
               margins: Theme.paddingMedium
 
           }
-          property int avg_walk_speed: user.averWalkSpeed;
           text: "Средняя скорость хотьбы: %1 км/ч".arg(avg_walk_speed)
           font.pixelSize: 40
           color: Theme.primaryColor
       }
       Label {
+          id: lastDateOfTest
           anchors {
               left: parent.left
               right: parent.right

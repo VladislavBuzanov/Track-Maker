@@ -26,7 +26,7 @@ Page {
                     image.state = 'NotRuning'
                     minute = 0;
                     hours = 0;
-                    timePassed.text = "Времени прошло - 00:00"
+                    timePassed.text = "Времени осталось - 00:00"
                 }
                 else {
                     var dialog = pageStack.push("Sailfish.Silica.TimePickerDialog", {
