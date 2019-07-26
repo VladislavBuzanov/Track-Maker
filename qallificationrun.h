@@ -33,7 +33,9 @@ class qualificationsRun: public  QObject
     Tracer tracer;
 
 public:
-    qualificationsRun(){}
+    qualificationsRun(){
+
+    }
 
     bool isOver(){return over;}
 

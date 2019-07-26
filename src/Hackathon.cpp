@@ -25,31 +25,31 @@ void buildUser(QFile *file, User *user){
 }
 
 int main(int argc, char *argv[])
-{    User user;
+{
+    QGuiApplication app(argc, argv);
+
+    User *user = new User();
 
     QFile userLog(FILE_NAME);
 
     if( !(QFile::exists(FILE_NAME)))
         fillUserLog(&userLog);
 
-    buildUser(&userLog, &user);
-    qualificationsRun qualRun(& user);
-    Track track;
-    track.setupUser(&user);
+    buildUser(&userLog, user);
+    qualificationsRun *qualRun;
+    qualRun = new qualificationsRun( user);
+    Track *track = new Track();
+    track->setupUser( user);
 
     QQuickView view;
-    view.rootContext()->setContextProperty("User", &user);
-    view.rootContext()->setContextProperty("QualRun", &qualRun);
-    view.rootContext()->setContextProperty("Track", &track);
+    view.rootContext()->setContextProperty("User", user);
+    view.show();
+    view.rootContext()->setContextProperty("QualRun", qualRun);
+    view.show();
+    view.rootContext()->setContextProperty("Track", track);
     view.show();
 
 
 
-
-
-
-
-    track.setupUser(&user);
-
-    return SailfishApp::main(argc, argv);
+    return app.exec();//SailfishApp::main(argc, argv);
 }
