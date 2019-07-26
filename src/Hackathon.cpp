@@ -25,8 +25,9 @@ void buildUser(QFile *file, User *user){
 }
 
 int main(int argc, char *argv[])
-{
-    QGuiApplication app(argc, argv);
+{    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+     QScopedPointer<QQuickView> view(SailfishApp::createView());
+     view->setSource(SailfishApp::pathToMainQml());
 
     User *user = new User();
 
@@ -41,15 +42,13 @@ int main(int argc, char *argv[])
     Track *track = new Track();
     track->setupUser( user);
 
-    QQuickView view;
-    view.rootContext()->setContextProperty("User", user);
-    view.show();
-    view.rootContext()->setContextProperty("QualRun", qualRun);
-    view.show();
-    view.rootContext()->setContextProperty("Track", track);
-    view.show();
+    view->rootContext()->setContextProperty("User", user);
+    view->rootContext()->setContextProperty("QualRun", qualRun);
+    view->rootContext()->setContextProperty("Track", track);
+     view->show();
 
 
 
-    return app.exec();//SailfishApp::main(argc, argv);
+
+    return app->exec();//SailfishApp::main(argc, argv);
 }
